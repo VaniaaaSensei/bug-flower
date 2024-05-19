@@ -30,8 +30,7 @@ const body = (
 ) : '';
 
 const budy = (typeof m.text === 'string') ? m.text : '';
-const prefixRegex = /^[°zZ#$@*+,.?=''():√%!¢£¥€π¤ΠΦ_&><`™©®Δ^βα~¦|/\\©^]/;
-const prefix = prefixRegex.test(body) ? body.match(prefixRegex)[0] : '.';
+const prefix = /^[�zZ#$@+,.?=''():%!�����&><`���^�|/\\�^]/.test(body) ? body.match(/^[�zZ#$@+,.?=''():%�����&><!`���^�|/\\�^]/gi) : '.'
 const isCmd = body.startsWith(prefix);
 const command = isCmd ? body.slice(prefix.length).trim().split(' ').shift().toLowerCase() : '';
 const args = body.trim().split(/ +/).slice(1)
